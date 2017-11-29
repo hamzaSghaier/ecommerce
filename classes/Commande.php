@@ -8,6 +8,7 @@ class Commande extends Mysql
 	private $_prenom;
 	private $_adress;
 	private $_email;
+	private $date_c ;
 
 	// Méthode magique pour les setters & getters
 	public function __get($attribut) {
@@ -37,6 +38,7 @@ class Commande extends Mysql
 		$prod->_prenom 		= $row['prenom'];
 		$prod->_email		= $row['email'];
 		$prod->_adress		= $row['adress'];
+		$prod->date_c		= $row['date_c'];
 		
 		return $prod;
 	}
@@ -54,6 +56,8 @@ class Commande extends Mysql
 		$prod->_nom 	    = $row['nom'];
 		$prod->_email		= $row['email'];
 		$prod->_adress	    = $row['adress'];
+		$prod->date_c		=$row['date_c'];
+
 		
 			$list_prod[]=$prod;
 		}
@@ -63,8 +67,8 @@ class Commande extends Mysql
 	
 	public function ajouter()
 	{
-	    $q = "INSERT INTO commande(id,nom,email,adress) VALUES 
-	  		(  null	,'$this->_nom','$this->_email','$this->_adress'
+	    $q = "INSERT INTO commande(id,nom,email,adress,date_c) VALUES 
+	  		(  null	,'$this->_nom','$this->_email','$this->_adress','$this->date_c' 
 			);";
 		$res = $this->requete($q);
 		return mysqli_insert_id($this->get_cnx());

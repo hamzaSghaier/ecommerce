@@ -16,6 +16,7 @@ if( !empty($nom) && !empty($email)&& !empty($adress) )
 	$cat->_email = $email;
 	$cat->_adress = $adress;
 	
+	
 	if( empty($id) ) 	// Ajout
 	{
 	$id = $cat->ajouter();
